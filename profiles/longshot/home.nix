@@ -12,6 +12,7 @@
     ../../user/utils/git.nix
     ../../user/comms/discord/discord.nix
     ../../user/utils/virtual-keyboards/onboard.nix
+    ../../user/games/steam.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
