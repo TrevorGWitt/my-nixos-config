@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 {
   # Allows home-manager to install pckages with the unfree license
   nixpkgs = {
@@ -11,6 +11,7 @@
     ../../user/utils/shells/sh.nix
     ../../user/utils/git.nix
     ../../user/comms/discord/discord.nix
+    ../../user/utils/virtual-keyboards/onboard.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should

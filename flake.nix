@@ -19,12 +19,18 @@
     nixosConfigurations = {
       nixos-twitt = lib.nixosSystem {
         inherit system;
+        specialArgs = {
+          inherit pkgs-unstable;
+        };
         modules = [ ./profiles/longshot/configuration.nix ];
       };
     };
     homeConfigurations = {
       trevor = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+        extraSpecialArgs = {
+          inherit pkgs-unstable;
+        };
         modules = [ ./profiles/longshot/home.nix ];
       };
     };
