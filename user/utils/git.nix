@@ -2,10 +2,12 @@
 
 {
   home.packages = [ pkgs.git ];
-  programs.git.enable = true;
-  programs.git.userName = "Trevor Witt";
-  programs.git.userEmail = "tgwitt99@yahoo.com";
-  programs.git.extraConfig = {
-    init.defaultBranch = "main";
+  programs.git = {
+    enable = true;
+    userName = "Trevor Witt";
+    userEmail = "tgwitt99@yahoo.com";
+    extraConfig = {
+      init.defaultBranch = "main";
+    };
   };
 }

@@ -1,8 +1,16 @@
 { config, pkgs, ... }:
 {
+  # Allows home-manager to install pckages with the unfree license
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+  };
+
   imports = [
     ../../user/utils/shells/sh.nix
     ../../user/utils/git.nix
+    ../../user/comms/discord/discord.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
