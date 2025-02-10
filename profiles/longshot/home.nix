@@ -1,7 +1,8 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ../../user/shells/sh.nix
+    ../../user/utils/shells/sh.nix
+    ../../user/uiils/git.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
