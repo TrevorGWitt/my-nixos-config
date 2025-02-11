@@ -1,5 +1,5 @@
 { config, pkgs, pkgs-unstable, userSettings, ... }:
 
 {
-  home.packages = [ pkgs.steam ];
+  home.packages = [ pkgs-unstable.vintagestory ];
 }

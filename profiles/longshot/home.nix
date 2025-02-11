@@ -1,9 +1,18 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, lib, pkgs, pkgs-unstable, ... }:
 {
-  # Allows home-manager to install pckages with the unfree license
   nixpkgs = {
+    system = "x86_64-linux";
     config = {
       allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+      allowInsecure = true;
+      permittedInsecurePackages = [
+        "dotnet-runtime-7.0.20"
+        # "aspnetcore-runtime-6.0.36"
+        # "aspnetcore-runtime-wrapped-6.0.36"
+        # "dotnet-sdk-6.0.428"
+        # "dotnet-sdk-wrapped-6.0.428"
+      ];
     };
   };
 
@@ -13,6 +22,7 @@
     ../../user/comms/discord/discord.nix
     ../../user/utils/virtual-keyboards/onboard.nix
     ../../user/games/steam.nix
+    ../../user/games/vintage-story.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should

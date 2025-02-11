@@ -5,7 +5,22 @@
 { config, lib, pkgs, pkgs-unstable, ... }:
 
 {
-  
+  nixpkgs = {
+    system = "x86_64-linux";
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+      allowInsecure = true;
+      permittedInsecurePackages = [
+        "dotnet-runtime-7.0.20"
+        # "aspnetcore-runtime-6.0.36"
+        # "aspnetcore-runtime-wrapped-6.0.36"
+        # "dotnet-sdk-6.0.428"
+        # "dotnet-sdk-wrapped-6.0.428"
+      ];
+    };
+  };
+
   # Enable OpenGL
   hardware.graphics = {
     enable = true;
@@ -144,8 +159,9 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  programs.steam.enable = true;
+
+  #NIXPKGS_ALLOW_INSECURE = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

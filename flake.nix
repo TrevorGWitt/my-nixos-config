@@ -13,8 +13,36 @@
   let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-    pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+    pkgs = import nixpkgs {
+      system = "x86_64-linux";
+      config = {
+        allowUnfree = true;
+        allowUnfreePredicate = (_: true);
+        allowInsecure = true;
+        permittedInsecurePackages = [
+          "dotnet-runtime-7.0.20"
+          #"aspnetcore-runtime-6.0.36"
+          # "aspnetcore-runtime-wrapped-6.0.36"
+          # "dotnet-sdk-6.0.428"
+          # "dotnet-sdk-wrapped-6.0.428"
+        ];
+      };
+    };
+    pkgs-unstable = import nixpkgs-unstable {
+      system = "x86_64-linux";
+      config = {
+        allowUnfree = true;
+        allowUnfreePredicate = (_: true);
+        allowInsecure = true;
+        permittedInsecurePackages = [
+          "dotnet-runtime-7.0.20"
+          #"aspnetcore-runtime-6.0.36"
+          # "aspnetcore-runtime-wrapped-6.0.36"
+          # "dotnet-sdk-6.0.428"
+          # "dotnet-sdk-wrapped-6.0.428"
+        ];
+      };
+    };
     in {
     nixosConfigurations = {
       nixos-twitt = lib.nixosSystem {
