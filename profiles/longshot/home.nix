@@ -13,6 +13,7 @@
         # "dotnet-sdk-6.0.428"
         # "dotnet-sdk-wrapped-6.0.428"
       ];
+      allowBroken = true;
     };
   };
 
@@ -23,6 +24,9 @@
     ../../user/utils/virtual-keyboards/onboard.nix
     ../../user/games/steam.nix
     ../../user/games/vintage-story.nix
+    ../../user/games/minecraft/minecraft.nix
+    ../../user/games/minecraft/prism.nix
+    ../../user/games/emulators/dolphin.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
